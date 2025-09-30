@@ -5,119 +5,85 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lista de Alunos</title>
   <style>
-    :root {
-      --gap: 12px;
-      --btn-radius: 10px;
-      --btn-pad: 12px 14px;
-    }
-
-    /* Layout base: centralizado vertical e horizontal */
     body {
       margin: 0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      min-height: 100svh; /* usa altura segura em mobile */
+      min-height: 100svh;
       display: grid;
       place-items: center;
-      background: #0f172a; /* azul escuro sutil */
+      background: #0f172a;
       color: #e2e8f0;
       padding: 16px;
     }
-
-    .wrap {
-      width: min(1100px, 100%);
-    }
-
+    .wrap { width: min(1100px, 100%); }
     h2 {
       margin: 0 0 16px 0;
       text-align: center;
-      font-weight: 700;
-      letter-spacing: 0.3px;
     }
-
-    /* GRID responsivo (mobile-first) */
     .container {
       display: grid;
-      gap: var(--gap);
-      /* Celular: 2 por linha */
+      gap: 12px;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      /* centraliza o bloco quando sobrar espaço vertical */
-      align-content: center;
     }
-
-    /* Tablets: 4 por linha */
     @media (min-width: 600px) {
       .container { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     }
-
-    /* Desktop grande: 8 por linha */
     @media (min-width: 1200px) {
       .container { grid-template-columns: repeat(8, minmax(0, 1fr)); }
     }
-
-    /* Botões */
-    button {
-      width: 100%;
-      padding: var(--btn-pad);
-      border: 0;
-      border-radius: var(--btn-radius);
+    a {
+      display: block;
+      text-align: center;
+      padding: 12px 14px;
+      border-radius: 10px;
       background: #22c55e;
       color: #0b1324;
       font-weight: 600;
       font-size: 0.95rem;
-      cursor: pointer;
+      text-decoration: none;
       box-shadow: 0 4px 10px rgba(0,0,0,0.15);
       transition: transform 0.12s ease, filter 0.2s ease;
-      outline: none;
     }
-    button:hover { transform: translateY(-1px); filter: brightness(1.05); }
-    button:active { transform: translateY(0); filter: brightness(0.98); }
-    button:focus-visible { box-shadow: 0 0 0 3px #86efac; }
-
-    /* Evita “pular” ao virar paisagem em mobile */
-    @media (orientation: landscape) and (max-height: 480px) {
-      body { padding-block: 8px; }
-      h2 { margin-bottom: 10px; }
-      .container { gap: 10px; }
-      button { padding: 10px 12px; }
-    }
+    a:hover { transform: translateY(-1px); filter: brightness(1.05); }
+    a:active { transform: translateY(0); filter: brightness(0.95); }
+    a:focus-visible { outline: 3px solid #86efac; }
   </style>
 </head>
 <body>
   <div class="wrap">
     <h2>Alunos</h2>
-
     <div class="container">
-      <button>Andre N.</button>
-      <button>Arthur C.</button>
-      <button>Augusto W.</button>
-      <button>Bianca M.</button>
-      <button>Brian N.</button>
-      <button>Davi P.</button>
-      <button>Davi M.</button>
-      <button>Davi B.</button>
-      <button>Eduarda P.</button>
-      <button>Eduardo S.</button>
-      <button>Francesco M.</button>
-      <button>Gabriel B.</button>
-      <button>Gabriel L.</button>
-      <button>Gustavo O.</button>
-      <button>Gustavo F.</button>
-      <button>Gustavo M.</button>
-      <button>Isaac R.</button>
-      <button>Isadora K.</button>
-      <button>João R.</button>
-      <button>Laura S.</button>
-      <button>Lucas D.</button>
-      <button>Nicole S.</button>
-      <button>Otaviano S.</button>
-      <button>Pedro T.</button>
-      <button>Rodrigo D.</button>
-      <button>Sophia W.</button>
-      <button>Tito O.</button>
-      <button>Tomás F.</button>
-      <button>Valentina F.</button>
-      <button>Vitor K.</button>
-      <button>Vittor P.</button>
+      <a href="https://senacterceiro.github.io/andreN/">Andre N.</a>
+      <a href="https://senacterceiro.github.io/arthurC/">Arthur C.</a>
+      <a href="https://senacterceiro.github.io/augustoW/">Augusto W.</a>
+      <a href="https://senacterceiro.github.io/biancaM/">Bianca M.</a>
+      <a href="https://senacterceiro.github.io/brianN/">Brian N.</a>
+      <a href="https://senacterceiro.github.io/daviP/">Davi P.</a>
+      <a href="https://senacterceiro.github.io/daviM/">Davi M.</a>
+      <a href="https://senacterceiro.github.io/daviB/">Davi B.</a>
+      <a href="https://senacterceiro.github.io/eduardaP/">Eduarda P.</a>
+      <a href="https://senacterceiro.github.io/eduardoS/">Eduardo S.</a>
+      <a href="https://senacterceiro.github.io/francescoM/">Francesco M.</a>
+      <a href="https://senacterceiro.github.io/gabrielB/">Gabriel B.</a>
+      <a href="https://senacterceiro.github.io/gabrielL/">Gabriel L.</a>
+      <a href="https://senacterceiro.github.io/gustavoO/">Gustavo O.</a>
+      <a href="https://senacterceiro.github.io/gustavoF/">Gustavo F.</a>
+      <a href="https://senacterceiro.github.io/gustavoM/">Gustavo M.</a>
+      <a href="https://senacterceiro.github.io/isaacR/">Isaac R.</a>
+      <a href="https://senacterceiro.github.io/isadoraK/">Isadora K.</a>
+      <a href="https://senacterceiro.github.io/joaoR/">João R.</a>
+      <a href="https://senacterceiro.github.io/lauraS/">Laura S.</a>
+      <a href="https://senacterceiro.github.io/lucasD/">Lucas D.</a>
+      <a href="https://senacterceiro.github.io/nicoleS/">Nicole S.</a>
+      <a href="https://senacterceiro.github.io/otavianoS/">Otaviano S.</a>
+      <a href="https://senacterceiro.github.io/pedroT/">Pedro T.</a>
+      <a href="https://senacterceiro.github.io/rodrigoD/">Rodrigo D.</a>
+      <a href="https://senacterceiro.github.io/sophiaW/">Sophia W.</a>
+      <a href="https://senacterceiro.github.io/titoO/">Tito O.</a>
+      <a href="https://senacterceiro.github.io/tomasF/">Tomás F.</a>
+      <a href="https://senacterceiro.github.io/valentinaF/">Valentina F.</a>
+      <a href="https://senacterceiro.github.io/vitorK/">Vitor K.</a>
+      <a href="https://senacterceiro.github.io/vittorP/">Vittor P.</a>
     </div>
   </div>
 </body>
