@@ -1,99 +1,124 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lista de Alunos</title>
   <style>
+    :root {
+      --gap: 12px;
+      --btn-radius: 10px;
+      --btn-pad: 12px 14px;
+    }
+
+    /* Layout base: centralizado vertical e horizontal */
     body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
       margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      min-height: 100svh; /* usa altura segura em mobile */
+      display: grid;
+      place-items: center;
+      background: #0f172a; /* azul escuro sutil */
+      color: #e2e8f0;
+      padding: 16px;
+    }
+
+    .wrap {
+      width: min(1100px, 100%);
     }
 
     h2 {
+      margin: 0 0 16px 0;
       text-align: center;
-      margin-bottom: 20px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
     }
 
+    /* GRID responsivo (mobile-first) */
     .container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 10px;
-    }
-
-    button {
-      padding: 12px;
-      border: none;
-      background-color: #4CAF50;
-      color: white;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 14px;
-      transition: background 0.3s, transform 0.2s;
-      width: 100%;
-    }
-
-    button:hover {
-      background-color: #45a049;
-      transform: scale(1.05);
-    }
-
-    /* Mantém 8 por linha em telas grandes */
-    @media (min-width: 1200px) {
-      .container {
-        grid-template-columns: repeat(8, 1fr);
-      }
+      gap: var(--gap);
+      /* Celular: 2 por linha */
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      /* centraliza o bloco quando sobrar espaço vertical */
+      align-content: center;
     }
 
     /* Tablets: 4 por linha */
-    @media (max-width: 992px) {
-      .container {
-        grid-template-columns: repeat(4, 1fr);
-      }
+    @media (min-width: 600px) {
+      .container { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     }
 
-    /* Celulares: 2 por linha */
-    @media (max-width: 600px) {
-      .container {
-        grid-template-columns: repeat(2, 1fr);
-      }
+    /* Desktop grande: 8 por linha */
+    @media (min-width: 1200px) {
+      .container { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+    }
+
+    /* Botões */
+    button {
+      width: 100%;
+      padding: var(--btn-pad);
+      border: 0;
+      border-radius: var(--btn-radius);
+      background: #22c55e;
+      color: #0b1324;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transition: transform 0.12s ease, filter 0.2s ease;
+      outline: none;
+    }
+    button:hover { transform: translateY(-1px); filter: brightness(1.05); }
+    button:active { transform: translateY(0); filter: brightness(0.98); }
+    button:focus-visible { box-shadow: 0 0 0 3px #86efac; }
+
+    /* Evita “pular” ao virar paisagem em mobile */
+    @media (orientation: landscape) and (max-height: 480px) {
+      body { padding-block: 8px; }
+      h2 { margin-bottom: 10px; }
+      .container { gap: 10px; }
+      button { padding: 10px 12px; }
     }
   </style>
 </head>
 <body>
-  <h2>Alunos</h2>
-  <div class="container">
-    <button>Andre N.</button>
-    <button>Arthur C.</button>
-    <button>Augusto W.</button>
-    <button>Bianca M.</button>
-    <button>Brian N.</button>
-    <button>Davi P.</button>
-    <button>Davi M.</button>
-    <button>Davi B.</button>
-    <button>Eduarda P.</button>
-    <button>Eduardo S.</button>
-    <button>Francesco M.</button>
-    <button>Gabriel B.</button>
-    <button>Gabriel L.</button>
-    <button>Gustavo O.</button>
-    <button>Gustavo F.</button>
-    <button>Gustavo M.</button>
-    <button>Isaac R.</button>
-    <button>Isadora K.</button>
-    <button>Joao R.</button>
-    <button>Laura S.</button>
-    <button>Lucas D.</button>
-    <button>Nicole S.</button>
-    <button>Otaviano S.</button>
-    <button>Pedro T.</button>
-    <button>Rodrigo D.</button>
-    <button>Sophia W.</button>
-    <button>Tito O.</button>
-    <button>Tomás F.</button>
-    <button>Valentina F.</button>
-    <button>Vitor K.</button>
-    <button>Vittor P.</button>
+  <div class="wrap">
+    <h2>Alunos</h2>
+
+    <div class="container">
+      <button>Andre N.</button>
+      <button>Arthur C.</button>
+      <button>Augusto W.</button>
+      <button>Bianca M.</button>
+      <button>Brian N.</button>
+      <button>Davi P.</button>
+      <button>Davi M.</button>
+      <button>Davi B.</button>
+      <button>Eduarda P.</button>
+      <button>Eduardo S.</button>
+      <button>Francesco M.</button>
+      <button>Gabriel B.</button>
+      <button>Gabriel L.</button>
+      <button>Gustavo O.</button>
+      <button>Gustavo F.</button>
+      <button>Gustavo M.</button>
+      <button>Isaac R.</button>
+      <button>Isadora K.</button>
+      <button>João R.</button>
+      <button>Laura S.</button>
+      <button>Lucas D.</button>
+      <button>Nicole S.</button>
+      <button>Otaviano S.</button>
+      <button>Pedro T.</button>
+      <button>Rodrigo D.</button>
+      <button>Sophia W.</button>
+      <button>Tito O.</button>
+      <button>Tomás F.</button>
+      <button>Valentina F.</button>
+      <button>Vitor K.</button>
+      <button>Vittor P.</button>
+    </div>
   </div>
 </body>
 </html>
